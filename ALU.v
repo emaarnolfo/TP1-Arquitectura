@@ -37,11 +37,11 @@ module ALU
     always @(*) begin
         case (opcode)
             6'b100_000: result = i_valA + i_valB;       // ADD bit a bit
-            6'b000_010: result = i_valA - i_valB;       // SUB bit a bit
+            6'b100_010: result = i_valA - i_valB;       // SUB bit a bit
             6'b100_100: result = i_valA & i_valB;       // AND bit a bit
             6'b100_101: result = i_valA | i_valB;       // OR bit a bit
             6'b100_110: result = i_valA ^ i_valB;       // XOR bit a bit
-            6'b000_011: result = i_valA >>> i_valB;     // SRA de i_regA hacia la derecha en n bits
+            6'b000_011: result = $signed(i_valA) >>> i_valB;     // SRA de i_regA hacia la derecha en n bits
             6'b000_010: result = i_valA >> i_valB;      // Ejemplo: SRL
             6'b100_111: result = ~(i_valA | i_valB);    // NOR entre i_regA e i_regB
             // Agrega más casos según tus operaciones personalizadas

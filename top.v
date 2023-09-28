@@ -30,7 +30,10 @@ module top
     input wire                              clk,
     input wire                            reset,
     input wire  [BUS_WIDTH - 1:0]    i_switches,
-    input wire  [PUL_WIDTH - 1:0]    i_pulsador,
+    //input wire  [PUL_WIDTH - 1:0]    i_pulsador,
+    input wire      i_pulsador0,
+    input wire      i_pulsador1,
+    input wire      i_pulsador2,
     output wire [BUS_WIDTH - 1:0]      o_result
     //Revisar como utilizar los switchs de las placas    
 );
@@ -43,7 +46,7 @@ module top
         .clk(clk),
         .reset(reset),
         .switches(i_switches),
-        .button(i_pulsador[0]),
+        .button(i_pulsador0),
         .register(datoA)
     );
     
@@ -51,7 +54,7 @@ module top
         .clk(clk),
         .reset(reset),
         .switches(i_switches),
-        .button(i_pulsador[1]),
+        .button(i_pulsador1),
         .register(datoB)
     );   
     
@@ -59,7 +62,7 @@ module top
         .clk(clk),
         .reset(reset),
         .switches(i_switches),
-        .button(i_pulsador[2]),
+        .button(i_pulsador2),
         .register(operacion)
     );   
     
